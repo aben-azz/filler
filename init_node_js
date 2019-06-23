@@ -1,0 +1,6 @@
+cd src/visualizer;
+rm -rf ./node_modules ./package-lock.json ../../start && printf "\x1b[1m\x1b[31mSuppression des anciens modules\x1b[0m\n";
+npm install && printf "\x1b[1m\x1b[31mVisualisateur prêt\x1b[0m\n";
+cd -;
+echo "#!/bin/zsh\nnode ./src/visualizer/index.js \$1 \$2 \$3" > start &&
+		printf "\x1b[1m\x1b[31m./start [p1] [p2] prêt\x1b[0m\n" && chmod 744 ./start;
