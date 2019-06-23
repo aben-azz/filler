@@ -10,9 +10,17 @@ function rand(x,y){
 	return Math.ceil(random(x,y))
 }
 
-function draw() {
-	background(50);
+let string = (str, position, taille, color) =>{
+	push()
+	textSize(taille);
+	text(str, ...position);
+	fill(...color);
+	pop();
+}
 
+function draw() {
+	//background(50);
+	string("filler", [500,500], 50, [255,0,0])
 }
 
 function keyPressed(e) {
