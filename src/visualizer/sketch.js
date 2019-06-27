@@ -1,6 +1,18 @@
 let Socket = io();
 
-Socket.on("connection_ok", () => console.log("Connexion ok !"));
+Socket.on("connection_ok", () =>{
+	Socket.emit("getPlayers");
+	Socket.emit("getMap");
+	console.log("Connexion ok !")
+});
+Socket.on("Players", players=>console.log("players", players))
+Socket.on("Map", map=>{
+	console.log("map", map)
+})
+Socket.on("finish", ()=>{
+	console.log("retentative")
+	Socket.emit("getMap");
+})
 
 function setup() {
 	createCanvas(1920, 1080)
